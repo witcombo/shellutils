@@ -1,7 +1,7 @@
 #!/bin/bash
 yum -y install openldap-clients nss-pam-ldapd 
 /sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"|head -n 1 >>/etc/motd
-authconfig --enableldap --enableldapauth --ldapserver=192.168.1.13 --ldapbasedn="dc=oradt,dc=com" --enablemkhomedir –update
+authconfig --enableldap --enableldapauth --ldapserver=192.168.1.13 --ldapbasedn="dc=oradt,dc=com" --enablemkhomedir --update
 echo "sudoers: files ldap" >>/etc/nsswitch.conf
 echo "uri ldap://192.168.1.13/" >>/etc/sudo-ldap.conf
 echo "sudoers_base dc=oradt,dc=com" >>/etc/sudo-ldap.conf
