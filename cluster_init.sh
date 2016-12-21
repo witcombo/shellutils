@@ -83,7 +83,7 @@ function Set_HostName (){
 				
 		     Set_S3fs
 				
-		     echo AKIAOEBVVPEIOGSCIZ5Q:++kVhlWLylfyUdstM0QlzJ7gtxDW9SzWS93Fg+9i > /root/.passwd-s3fs
+		     echo AKIAOEBVVPEIOGSCIZ5Q:++kVhlWLylfyUdstM0QlzJ7gtxDW9SzWS93Fg+9ii > /root/.passwd-s3fs
 		     chmod 600 /root/.passwd-s3fs
 		     s3fs oradt-s /data/images -o passwd_file=/root/.passwd-s3fs -o url=http://s3.cn-north-1.amazonaws.com.cn -o endpoint=cn-north-1
 		     echo '/usr/local/bin/s3fs#oradt-s /data/images/ fuse allow_other,url=http://s3.cn-north-1.amazonaws.com.cn,endpoint=cn-north-1 0 0' >> /etc/fstab
