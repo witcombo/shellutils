@@ -30,11 +30,11 @@ function Set_S3fs {
 function Judge_Service (){
 
         if   [ $NET -eq 10 -o $NET -eq 100 ];then
-			 if [ $IP -ge 50 -a $IP -le 99  ];then
+            if [ $IP -ge 50 -a $IP -le 99  ];then
 				USE=Service
-			 else
-				USE=Api
-			 fi
+            else
+                USE=Api
+            fi
         elif [ $NET -eq 11 -o $NET -eq 110 ];then
 			 if [ $IP -ge 220 ];then
 				USE=Card
@@ -42,7 +42,6 @@ function Judge_Service (){
 				USE=Service
 			 else
 				USE=Web
-			 fi
 			 fi
         elif [ $NET -eq 12 -o $NET -eq 120 ];then
              USE=DB
