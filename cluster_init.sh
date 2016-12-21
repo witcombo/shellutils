@@ -77,7 +77,7 @@ function Set_HostName (){
 	     sed -i 's/^Hostname=.*/Hostname='$HOSTNAME'/g' /etc/zabbix/zabbix_agentd.conf
 	     sed -i 's/add_header.*/add_header ServerID '$HOSTNAME";"'/g' /usr/local/tengine/conf/nginx.conf
 		
-	if [ $USE=Api | $USE=Web | $USE=Card | $USE=DB ];then
+	if [ $USE=Api || $USE=Web || $USE=Card || $USE=DB ];then
 		if [ $AREA1 -eq 172 -a $AREA2 -eq 20 ];then
 				
 		     Set_S3fs
