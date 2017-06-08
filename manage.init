@@ -1,0 +1,74 @@
+#/bin/env bash
+# chkconfig:   2345 90 10
+#
+# description: manage.py runserver 0.0.0.0:8000
+#
+# Source function library.
+. /etc/rc.d/init.d/functions   
+# Source networking configuration.
+. /etc/sysconfig/network
+
+PID() {
+        pid=`ps aux | grep "manage.py runserver 0.0.0.0:8000" | grep -v grep`
+}
+
+start() {
+        PID
+        if [ $? -ne 0 ];then 
+         /usr/bin/python /home/yanwei/big_data_service/connection/manage.py runserver 0.0.0.0:8000 >/dev/null 2>&1 &
+         sleep 1
+         PID
+         if [ $? -eq 0 ];then
+                action "Start manage.py" /bin/true
+         fi
+        else 
+         echo $PID 进程已运行
+         action "Start manage.py" /bin/false
+        fi
+        return $retval
+}
+
+stop() {
+        PID
+        if [ $? -eq 0 ];then
+         for i in `echo $pid | awk '{print $2}'`;do kill -9 $i;done
+         sleep 1
+         PID
+         if [ $? -ne 0 ];then
+                action "Stop manage.py" /bin/true
+         fi
+
+        else
+                echo 进程未启动
+         action "Stop manage.py" /bin/false
+        fi
+        return $retval
+}
+
+restart() {
+        stop
+        sleep 1
+        start
+}
+
+rh_status() {
+        ps aux | grep "python manage.py runserver 0.0.0.0:8000" | grep -v grep
+}
+
+case "$1" in
+     start)
+         $1
+         ;;
+     stop)
+         $1
+         ;;
+     restart)
+         $1
+         ;;
+     status)
+         rh_status
+         ;;
+     *)
+         echo $"Usage: $0 {start|stop|status|restart}"
+         exit 2
+ esac
