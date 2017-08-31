@@ -77,9 +77,9 @@ function ModifyMainConfig(){
     sed -i 's/kafka_mapfriend:.*/kafka_mapfriend: api_mapfriend_fangzhen/g' $1
     sed -i 's/kafka_contactcard:.*/kafka_contactcard: api_contactcard_fangzhen/g' $1
     sed -i 's/kafka_funccard:.*/kafka_funccard: api_funccard_fangzhen/g' $1
-    sed -i 's/SMS_POPULAR_CODE:.*/SMS_POPULAR_CODE: \"拓展人脉商务神器，很时尚，一定要分享给您：http:\/\/101.251.193.29:82\/h5\/imora\/download.html，退订回复TD\"/g' $1
-    sed -i 's/SMS_ADD_FRIENDS:.*/SMS_ADD_FRIENDS: \"HI，aa，我是bbccdd，诚邀您加入橙脉，随时随地拓展人脉、了解行业资讯、管理人脉 “橙脉”在手，职场我有！http:\/\/101.251.193.29:82\/h5\/imora\/download.html，退订回复TD\"/g' $1
-    sed -i 's/HOST_URL:.*/HOST_URL: http:\/\/101.251.193.27:81/g' $1
+    sed -i 's/SMS_POPULAR_CODE:.*/SMS_POPULAR_CODE: \"拓展人脉商务神器，很时尚，一定要分享给您：http:\/\/101.0.0.01:82\/h5\/imora\/download.html，退订回复TD\"/g' $1
+    sed -i 's/SMS_ADD_FRIENDS:.*/SMS_ADD_FRIENDS: \"HI，aa，我是bbccdd， “橙”在手，职场我有！http:\/\/101.251.193.29:82\/h5\/imora\/download.html，退订回复TD\"/g' $1
+    sed -i 's/HOST_URL:.*/HOST_URL: http:\/\/101.251.193.271:81/g' $1
     sed -i 's/DOC_ROOT:.*/DOC_ROOT: \/data\/images\/images\//g' $1
     sed -i "s/gearman_server:.*/gearman_server: '172.17.1.101:4730'/g" $1
 
@@ -105,9 +105,9 @@ function ModifyParConfig()  {
 
 function ModifyDesignConfig()  {
     echo "更新design_config.yml"
-    sed -i "s/const ALIPAY_NOTIFY_URL.*/const ALIPAY_NOTIFY_URL = 'http:\/\/101.251.193.27:81\/design\/alipay';/g" $1
-    sed -i "s/const WXAPP_NOTIFY_URL.*/const WXAPP_NOTIFY_URL = 'http:\/\/101.251.193.27:81\/design\/wxpay';/g" $1
-    sed -i "s/const WXAPP_IMORA_NOTIFY_URL.*/const WXAPP_IMORA_NOTIFY_URL = 'http:\/\/101.251.193.27:81\/account\/trading\/wxpay';/g" $1
+    sed -i "s/const ALIPAY_NOTIFY_URL.*/const ALIPAY_NOTIFY_URL = 'http:\/\/101.251.193.271:81\/design\/alipay';/g" $1
+    sed -i "s/const WXAPP_NOTIFY_URL.*/const WXAPP_NOTIFY_URL = 'http:\/\/101.251.193.271:81\/design\/wxpay';/g" $1
+    sed -i "s/const WXAPP_IMORA_NOTIFY_URL.*/const WXAPP_IMORA_NOTIFY_URL = 'http:\/\/101.251.193.271:81\/account\/trading\/wxpay';/g" $1
     sed -i "s/const WXGZH_NOTIFY_URL.*/const WXGZH_NOTIFY_URL = 'http:\/\/101.251.193.27:81\/design\/wxpayweb';/g" $1
 }
 
